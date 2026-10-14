@@ -1,0 +1,19 @@
+<%-- Reusable "donor card" fragment. Included inside a c:forEach that sets var="d". --%>
+<article class="card donor-card">
+  <div class="badge-big"><c:out value="${d.bloodGroup}"/></div>
+  <div class="card-body">
+    <h3><c:out value="${d.fullName}"/></h3>
+    <p class="muted">&#128205; <c:out value="${d.city}"/></p>
+    <c:choose>
+      <c:when test="${d.phoneVisible and not empty d.phone and not empty sessionScope.user}">
+        <a class="btn btn-small" href="tel:${d.phone}">&#128222; Call <c:out value="${d.phone}"/></a>
+      </c:when>
+      <c:when test="${d.phoneVisible and not empty d.phone}">
+        <a class="btn btn-small btn-outline" href="${ctx}/login">Login to view contact</a>
+      </c:when>
+      <c:otherwise>
+        <span class="muted">Contact details kept private by donor</span>
+      </c:otherwise>
+    </c:choose>
+  </div>
+</article>

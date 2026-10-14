@@ -1,0 +1,18 @@
+<%-- Reusable "blood request card" fragment. Included inside a c:forEach that sets var="r". --%>
+<article class="card req-card">
+  <div class="badge-big"><c:out value="${r.bloodGroup}"/></div>
+  <div class="card-body">
+    <h3><c:out value="${r.units}"/> unit(s) needed in <c:out value="${r.city}"/></h3>
+    <p class="muted">Patient: <c:out value="${r.patientName}"/> &middot; <c:out value="${r.hospital}"/></p>
+    <p class="muted">&#128339; Needed by <fmt:formatDate value="${r.neededBy}" pattern="dd MMM yyyy"/></p>
+    <c:if test="${not empty r.note}"><p><c:out value="${r.note}"/></p></c:if>
+    <c:choose>
+      <c:when test="${not empty sessionScope.user}">
+        <a class="btn btn-small" href="tel:${r.contactPhone}">&#128222; Call <c:out value="${r.contactPhone}"/></a>
+      </c:when>
+      <c:otherwise>
+        <a class="btn btn-small btn-outline" href="${ctx}/login">Login to see contact</a>
+      </c:otherwise>
+    </c:choose>
+  </div>
+</article>
