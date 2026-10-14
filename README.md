@@ -1,3 +1,4 @@
+
 # LifeLink - Blood Donor Finder
 
 A free community web app that connects **blood donors** with people who need blood.
@@ -166,3 +167,6 @@ $env:SMTP_FROM = $env:SMTP_USER
 ```
 
 Use a Google App Password only when 2-Step Verification is enabled on the sending Google account. Never commit SMTP credentials to source control or put them in JSP/Java source code. For production, use your hosting provider's secret/environment-variable manager and HTTPS. If SMTP is not configured, registration is intentionally blocked instead of creating accounts that cannot verify their email.
+
+# LifeLink
+
